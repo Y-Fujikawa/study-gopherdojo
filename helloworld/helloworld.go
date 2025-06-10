@@ -4,17 +4,39 @@ import (
 	"fmt"
 )
 
-func main() {
-	fmt.Println("hello world")
+func SumRange(start, end int) int {
+	var sum int
+	for i := start; i <= end; i++ {
+		sum += i
+	}
+	return sum
+}
 
-	// 変数定義いろいろ
+func GetZeroValues() (int, string, bool, float64, []int, map[string]int) {
+	var n int
+	var s string
+	var b bool
+	var f float64
+	var arr []int
+	var m map[string]int
+	return n, s, b, f, arr, m
+}
+
+func CreateVariables() (int, string, bool, float64, []int, map[string]int) {
 	var n int = 100
 	var s string = "hello"
 	var b bool = true
 	var f float64 = 3.14
 	var arr []int = []int{1, 2, 3}
 	var m map[string]int = map[string]int{"apple": 1, "banana": 2}
+	return n, s, b, f, arr, m
+}
 
+func main() {
+	fmt.Println("hello world")
+
+	// 変数定義いろいろ
+	n, s, b, f, arr, m := CreateVariables()
 	fmt.Println(n, s, b, f, arr, m)
 
 	// 変数定義省略
@@ -62,22 +84,11 @@ func main() {
 
 	// 変数のゼロ値
 	// 明示的な初期化をしなくてもゼロ値が設定される
-	var n7 int
-	var s7 string
-	var b7 bool
-	var f7 float64
-	var arr7 []int
-	var m7 map[string]int
-
+	n7, s7, b7, f7, arr7, m7 := GetZeroValues()
 	fmt.Println(n7, s7, b7, f7, arr7, m7)
 
 	// 簡単な例
-	// sum := 0
-	// 以下のように書いても良い
-	var sum int
-	for i := 0; i <= 10; i++ {
-		sum += i
-	}
+	sum := SumRange(0, 10)
 	fmt.Println(sum)
 
 	// 型のある定数
